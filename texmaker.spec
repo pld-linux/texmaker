@@ -1,4 +1,4 @@
-# $Revision: 1.1 $
+# $Revision: 1.2 $
 Summary:	LaTeX development environment
 Summary(pl):	¦rodowisko do tworzenia dokumentów LaTeXa
 Name:		texmaker
@@ -27,12 +27,15 @@ potrzebnych do tworzenia dokumentów LaTeXa w jednej aplikacji.
 
 %build
 export QTDIR="%{_prefix}"
-qmake -unix PREFIX="%{_prefix}" CXXFLAGS="%{rpmcflags}" texmaker.pro
+qmake -unix texmaker.pro \
+	PREFIX="%{_prefix}" \
+	CXXFLAGS="%{rpmcflags}" 
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_pixmapsdir},%{_desktopdir},%{_datadir}/texmaker}
+
 install %{name} $RPM_BUILD_ROOT%{_bindir}
 install utilities/{*.png,*.gif,usermanual.html,style.css} $RPM_BUILD_ROOT%{_datadir}/texmaker
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
