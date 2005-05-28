@@ -1,17 +1,17 @@
 [Desktop Entry]
 Categories=Qt;TextEditor;
-Comment=
+Comment=LaTeX Editor
+Comment[fr]=Editeur LaTeX
+Comment[pl]=Edytor LaTeXa
 Encoding=UTF-8
 Exec=texmaker
 GenericName=LaTeX Editor
 GenericName[fr]=Editeur LaTeX
-GenericName[pl]=Edytor LaTeX
+GenericName[pl]=Edytor LaTeXa
 Icon=texmaker
 MimeType=text/x-tex
 MiniIcon=texmaker
 Name=Texmaker
-Name[fr]=Texmaker
-Name[pl]=Texmaker
 Terminal=false
 Type=Application
 # vi: encoding=utf-8
