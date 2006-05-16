@@ -1,16 +1,16 @@
 Summary:	LaTeX development environment
 Summary(pl):	¦rodowisko do tworzenia dokumentów LaTeXa
 Name:		texmaker
-Version:	1.12
-Release:	1
+Version:	1.3
+Release:	0.1
 License:	GPL
 Group:		Applications/Publishing
 Source0:	http://www.xm1math.net/texmaker/%{name}-%{version}.tar.bz2
-# Source0-md5:	af243a0506a296216b51aad80b244c63
+# Source0-md5:	17f91175a32827e9c9f45dc7a20a0c2b
 Source1:	%{name}.desktop
 URL:		http://www.xm1math.net/texmaker/
 BuildRequires:	qmake
-BuildRequires:	qt-devel >= 3.2
+BuildRequires:	qt-devel >= 4.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
