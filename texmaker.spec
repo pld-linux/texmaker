@@ -1,5 +1,5 @@
 Summary:	LaTeX development environment
-Summary(pl):	¦rodowisko do tworzenia dokumentów LaTeXa
+Summary(pl.UTF-8):   Åšrodowisko do tworzenia dokumentÃ³w LaTeXa
 Name:		texmaker
 Version:	1.3
 Release:	0.1
@@ -17,9 +17,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Texmaker is a free LaTeX editor, that integrates many tools needed to
 develop documents with LaTeX, in just one application.
 
-%description -l pl
-Texmaker to darmowy edytor LaTeXa, który ³±czy wiele narzêdzi
-potrzebnych do tworzenia dokumentów LaTeXa w jednej aplikacji.
+%description -l pl.UTF-8
+Texmaker to darmowy edytor LaTeXa, ktÃ³ry Å‚Ä…czy wiele narzÄ™dzi
+potrzebnych do tworzenia dokumentÃ³w LaTeXa w jednej aplikacji.
 
 %prep
 %setup -q
