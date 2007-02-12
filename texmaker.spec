@@ -1,5 +1,5 @@
 Summary:	LaTeX development environment
-Summary(pl.UTF-8):   Środowisko do tworzenia dokumentów LaTeXa
+Summary(pl.UTF-8):	Środowisko do tworzenia dokumentów LaTeXa
 Name:		texmaker
 Version:	1.3
 Release:	0.1
