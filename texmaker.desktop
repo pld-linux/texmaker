@@ -9,7 +9,6 @@ GenericName[fr]=Editeur LaTeX
 GenericName[pl]=Edytor LaTeXa
 Icon=texmaker
 MimeType=text/x-tex;
-MiniIcon=texmaker
 Name=Texmaker
 Terminal=false
 Type=Application
