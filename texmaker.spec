@@ -1,16 +1,20 @@
+#
+# TODO:	- use system hunspell
+#
 Summary:	LaTeX development environment
 Summary(pl.UTF-8):	Środowisko do tworzenia dokumentów LaTeXa
 Name:		texmaker
-Version:	1.3
-Release:	0.1
+Version:	1.7.1
+Release:	1
 License:	GPL
-Group:		Applications/Publishing
+Group:		X11/Applications/Publishing
 Source0:	http://www.xm1math.net/texmaker/%{name}-%{version}.tar.bz2
-# Source0-md5:	17f91175a32827e9c9f45dc7a20a0c2b
+# Source0-md5:	2b59114f02b0e4ad65db78c10c740bf8
 Source1:	%{name}.desktop
 URL:		http://www.xm1math.net/texmaker/
-BuildRequires:	qmake
-BuildRequires:	qt-devel >= 4.1
+BuildRequires:	qt4-build
+BuildRequires:	qt4-qmake
+BuildRequires:	QtGui-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -26,7 +30,7 @@ potrzebnych do tworzenia dokumentów LaTeXa w jednej aplikacji.
 
 %build
 export QTDIR="%{_prefix}"
-qmake -unix texmaker.pro \
+qmake-qt4 -unix texmaker.pro \
 	PREFIX="%{_prefix}" \
 	CXXFLAGS="%{rpmcflags}"
 %{__make}
@@ -36,7 +40,10 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_pixmapsdir},%{_desktopdir},%{_datadir}/texmaker}
 
 install %{name} $RPM_BUILD_ROOT%{_bindir}
-install utilities/{*.png,*.gif,usermanual.html,style.css} $RPM_BUILD_ROOT%{_datadir}/texmaker
+install utilities/{*.gif,*.png,psheader.txt,*.aff,*.dic,*.qm} $RPM_BUILD_ROOT%{_datadir}/texmaker
+for i in latexhelp.html style.css usermanual_en.html usermanual_fr.html; do
+	ln -s %{_docdir}/%{name}-%{version}/$i $RPM_BUILD_ROOT%{_datadir}/texmaker
+done
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 install utilities/texmaker32x32.png $RPM_BUILD_ROOT%{_pixmapsdir}/texmaker.png
 # are SVG icons supported?
@@ -47,8 +54,16 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc utilities/AUTHORS
+%doc utilities/AUTHORS utilities/CHANGELOG.txt utilities/latexhelp.html utilities/style.css utilities/usermanual_*.html
 %attr(755,root,root) %{_bindir}/*
-%{_datadir}/%{name}
+%dir %{_datadir}/%{name}
+%{_datadir}/%{name}/en_GB.*
+%lang(fr) %{_datadir}/%{name}/fr_FR.*
+%lang(fr) %{_datadir}/%{name}/texmaker_fr.qm
+%{_datadir}/%{name}/*.css
+%{_datadir}/%{name}/*.html
+%{_datadir}/%{name}/*.gif
+%{_datadir}/%{name}/*.png
+%{_datadir}/%{name}/*.txt
 %{_desktopdir}/*.desktop
 %{_pixmapsdir}/*
