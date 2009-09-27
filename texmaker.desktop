@@ -1,8 +1,8 @@
 [Desktop Entry]
 Categories=Qt;TextEditor;
-Comment=LaTeX Editor
-Comment[fr]=Editeur LaTeX
-Comment[pl]=Edytor LaTeXa
+Comment=LaTeX development environment
+Comment[fr]=Environnement de développement LaTeX
+Comment[pl]=Środowisko edutorskie LaTeXa
 Exec=texmaker
 GenericName=LaTeX Editor
 GenericName[fr]=Editeur LaTeX

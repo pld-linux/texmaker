@@ -4,12 +4,12 @@
 Summary:	LaTeX development environment
 Summary(pl.UTF-8):	Środowisko do tworzenia dokumentów LaTeXa
 Name:		texmaker
-Version:	1.7.1
+Version:	1.9.2
 Release:	1
 License:	GPL
 Group:		X11/Applications/Publishing
 Source0:	http://www.xm1math.net/texmaker/%{name}-%{version}.tar.bz2
-# Source0-md5:	2b59114f02b0e4ad65db78c10c740bf8
+# Source0-md5:	61842ccacf7d843e497aa74f7135d04a
 Source1:	%{name}.desktop
 URL:		http://www.xm1math.net/texmaker/
 BuildRequires:	qt4-build
@@ -32,7 +32,7 @@ potrzebnych do tworzenia dokumentów LaTeXa w jednej aplikacji.
 export QTDIR="%{_prefix}"
 qmake-qt4 -unix texmaker.pro \
 	PREFIX="%{_prefix}" \
-	CXXFLAGS="%{rpmcflags}"
+	QMAKE_CXXFLAGS="%{rpmcflags}"
 %{__make}
 
 %install
@@ -40,27 +40,41 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_pixmapsdir},%{_desktopdir},%{_datadir}/texmaker}
 
 install %{name} $RPM_BUILD_ROOT%{_bindir}
-install utilities/{*.gif,*.png,psheader.txt,*.aff,*.dic,*.qm} $RPM_BUILD_ROOT%{_datadir}/texmaker
-for i in latexhelp.html style.css usermanual_en.html usermanual_fr.html; do
-	ln -s %{_docdir}/%{name}-%{version}/$i $RPM_BUILD_ROOT%{_datadir}/texmaker
+install utilities/{*.gif,*.png,psheader.txt} dictionaries/{*.aff,*.dic} locale/*.qm \
+	$RPM_BUILD_ROOT%{_datadir}/texmaker
+cd doc
+for i in *; do
+	ln -s %{_docdir}/%{name}-%{version}/doc/$i $RPM_BUILD_ROOT%{_datadir}/texmaker
 done
+cd ..
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 install utilities/texmaker32x32.png $RPM_BUILD_ROOT%{_pixmapsdir}/texmaker.png
-# are SVG icons supported?
-#install utilities/texmaker.svg $RPM_BUILD_ROOT%{_pixmapsdir}
+install utilities/texmaker.svg $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc utilities/AUTHORS utilities/CHANGELOG.txt utilities/latexhelp.html utilities/style.css utilities/usermanual_*.html
+%doc utilities/AUTHORS utilities/CHANGELOG.txt dictionaries/*.txt doc
 %attr(755,root,root) %{_bindir}/*
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/en_GB.*
+%lang(de) %{_datadir}/%{name}/de_DE.*
+%lang(es) %{_datadir}/%{name}/es_ES.*
 %lang(fr) %{_datadir}/%{name}/fr_FR.*
+%lang(it) %{_datadir}/%{name}/it_IT.*
+%lang(ca) %{_datadir}/%{name}/texmaker_ca.qm
+%lang(de) %{_datadir}/%{name}/texmaker_de.qm
+%lang(es) %{_datadir}/%{name}/texmaker_es.qm
+%lang(fa) %{_datadir}/%{name}/texmaker_fa.qm
 %lang(fr) %{_datadir}/%{name}/texmaker_fr.qm
-%{_datadir}/%{name}/*.css
+%lang(gl) %{_datadir}/%{name}/texmaker_gl.qm
+%lang(it) %{_datadir}/%{name}/texmaker_it.qm
+%lang(pt) %{_datadir}/%{name}/texmaker_pt_BR.qm
+%lang(ru) %{_datadir}/%{name}/texmaker_ru.qm
+%lang(zh_CN) %{_datadir}/%{name}/texmaker_zh_CN.qm
+%lang(zh_TW) %{_datadir}/%{name}/texmaker_zh_TW.qm
 %{_datadir}/%{name}/*.html
 %{_datadir}/%{name}/*.gif
 %{_datadir}/%{name}/*.png
