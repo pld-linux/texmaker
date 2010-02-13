@@ -1,20 +1,21 @@
 #
 # TODO:	- use system hunspell
+# TODO: pl.UTF-8: summary, description
 #
 Summary:	LaTeX development environment
 Summary(pl.UTF-8):	Środowisko do tworzenia dokumentów LaTeXa
 Name:		texmaker
-Version:	1.9.2
+Version:	1.9.9
 Release:	1
 License:	GPL
 Group:		X11/Applications/Publishing
 Source0:	http://www.xm1math.net/texmaker/%{name}-%{version}.tar.bz2
-# Source0-md5:	61842ccacf7d843e497aa74f7135d04a
+# Source0-md5:	6a56af78aac811ec3a82e7d375d388ae
 Source1:	%{name}.desktop
 URL:		http://www.xm1math.net/texmaker/
+BuildRequires:	QtGui-devel
 BuildRequires:	qt4-build
 BuildRequires:	qt4-qmake
-BuildRequires:	QtGui-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -64,7 +65,16 @@ rm -rf $RPM_BUILD_ROOT
 %lang(es) %{_datadir}/%{name}/es_ES.*
 %lang(fr) %{_datadir}/%{name}/fr_FR.*
 %lang(it) %{_datadir}/%{name}/it_IT.*
+%lang(de) %{_datadir}/%{name}/qt_de.qm
+%lang(es) %{_datadir}/%{name}/qt_es.qm
+%lang(fr) %{_datadir}/%{name}/qt_fr.qm
+%lang(pt) %{_datadir}/%{name}/qt_pt.qm
+%lang(ru) %{_datadir}/%{name}/qt_ru.qm
+%lang(zh_CN) %{_datadir}/%{name}/qt_zh_CN.qm
+%lang(zh_TW) %{_datadir}/%{name}/qt_zh_TW.qm
+%lang(cs) %{_datadir}/%{name}/texmaker_cs.qm
 %lang(ca) %{_datadir}/%{name}/texmaker_ca.qm
+%lang(cs) %{_datadir}/%{name}/texmaker_cs.qm
 %lang(de) %{_datadir}/%{name}/texmaker_de.qm
 %lang(es) %{_datadir}/%{name}/texmaker_es.qm
 %lang(fa) %{_datadir}/%{name}/texmaker_fa.qm
