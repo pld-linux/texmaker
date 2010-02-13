@@ -14,6 +14,8 @@ Source0:	http://www.xm1math.net/texmaker/%{name}-%{version}.tar.bz2
 Source1:	%{name}.desktop
 URL:		http://www.xm1math.net/texmaker/
 BuildRequires:	QtGui-devel
+BuildRequires:	QtNetwork-devel
+BuildRequires:	QtXml-devel
 BuildRequires:	qt4-build
 BuildRequires:	qt4-qmake
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
