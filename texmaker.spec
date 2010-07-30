@@ -4,7 +4,7 @@
 #
 Summary:	LaTeX development environment
 Summary(hu.UTF-8):	LaTeX fejlesztői környezet
-Summary(pl.UTF-8):	Årodowisko do tworzenia dokumentÃ³w LaTeXa
+Summary(pl.UTF-8):	Środowisko do tworzenia dokumentów LaTeXa
 Name:		texmaker
 Version:	2.0
 Release:	1
@@ -30,8 +30,8 @@ Texmaker egy ingyenes LaTeX szerkesztő, amely eszközök tömkelegét
 integrálja egybe LaTeX dokumentumok fejlesztéséhez.
 
 %description -l pl.UTF-8
-Texmaker to darmowy edytor LaTeXa, ktÃ³ry ÅÄczy wiele narzÄdzi
-potrzebnych do tworzenia dokumentÃ³w LaTeXa w jednej aplikacji.
+Texmaker to darmowy edytor LaTeXa, który łączy wiele narzędzi
+potrzebnych do tworzenia dokumentów LaTeXa w jednej aplikacji.
 
 %prep
 %setup -q
