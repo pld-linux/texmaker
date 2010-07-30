@@ -3,14 +3,15 @@
 # TODO: pl.UTF-8: summary, description
 #
 Summary:	LaTeX development environment
-Summary(pl.UTF-8):	Środowisko do tworzenia dokumentów LaTeXa
+Summary(hu.UTF-8):	LaTeX fejlesztői környezet
+Summary(pl.UTF-8):	Årodowisko do tworzenia dokumentÃ³w LaTeXa
 Name:		texmaker
-Version:	1.9.9
+Version:	2.0
 Release:	1
 License:	GPL
 Group:		X11/Applications/Publishing
 Source0:	http://www.xm1math.net/texmaker/%{name}-%{version}.tar.bz2
-# Source0-md5:	6a56af78aac811ec3a82e7d375d388ae
+# Source0-md5:	9feb111fe3e6d420e0dbdd5140b195ca
 Source1:	%{name}.desktop
 URL:		http://www.xm1math.net/texmaker/
 BuildRequires:	QtGui-devel
@@ -24,9 +25,13 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Texmaker is a free LaTeX editor, that integrates many tools needed to
 develop documents with LaTeX, in just one application.
 
+%description  -l hu.UTF-8
+Texmaker egy ingyenes LaTeX szerkesztő, amely eszközök tömkelegét
+integrálja egybe LaTeX dokumentumok fejlesztéséhez.
+
 %description -l pl.UTF-8
-Texmaker to darmowy edytor LaTeXa, który łączy wiele narzędzi
-potrzebnych do tworzenia dokumentów LaTeXa w jednej aplikacji.
+Texmaker to darmowy edytor LaTeXa, ktÃ³ry ÅÄczy wiele narzÄdzi
+potrzebnych do tworzenia dokumentÃ³w LaTeXa w jednej aplikacji.
 
 %prep
 %setup -q
@@ -67,6 +72,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(es) %{_datadir}/%{name}/es_ES.*
 %lang(fr) %{_datadir}/%{name}/fr_FR.*
 %lang(it) %{_datadir}/%{name}/it_IT.*
+%lang(cs) %{_datadir}/%{name}/qt_cs.qm
 %lang(de) %{_datadir}/%{name}/qt_de.qm
 %lang(es) %{_datadir}/%{name}/qt_es.qm
 %lang(fr) %{_datadir}/%{name}/qt_fr.qm
