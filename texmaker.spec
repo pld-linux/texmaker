@@ -16,7 +16,9 @@ Source1:	%{name}.desktop
 URL:		http://www.xm1math.net/texmaker/
 BuildRequires:	QtGui-devel
 BuildRequires:	QtNetwork-devel
+BuildRequires:	QtWebKit-devel
 BuildRequires:	QtXml-devel
+BuildRequires:	poppler-Qt-devel
 BuildRequires:	qt4-build
 BuildRequires:	qt4-qmake
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
