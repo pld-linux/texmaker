@@ -2,25 +2,40 @@
 # TODO:	- use system hunspell
 # TODO: pl.UTF-8: summary, description
 #
+%define		qt_ver	5.7
 Summary:	LaTeX development environment
 Summary(hu.UTF-8):	LaTeX fejlesztői környezet
 Summary(pl.UTF-8):	Środowisko do tworzenia dokumentów LaTeXa
 Name:		texmaker
-Version:	4.1
+Version:	5.0.2
 Release:	1
 License:	GPL
 Group:		X11/Applications/Publishing
 Source0:	http://www.xm1math.net/texmaker/%{name}-%{version}.tar.bz2
-# Source0-md5:	97ef7f97e73d69283391e467e5758275
+# Source0-md5:	9157bd4838caa69cbd6e377a2e980084
 Source1:	%{name}.desktop
 URL:		http://www.xm1math.net/texmaker/
-BuildRequires:	QtGui-devel
-BuildRequires:	QtNetwork-devel
-BuildRequires:	QtWebKit-devel
-BuildRequires:	QtXml-devel
-BuildRequires:	poppler-Qt-devel
-BuildRequires:	qt4-build
-BuildRequires:	qt4-qmake
+BuildRequires:	Qt5Concurrent-devel >= %{qt_ver}
+BuildRequires:	Qt5Core-devel >= %{qt_ver}
+BuildRequires:	Qt5Gui-devel >= %{qt_ver}
+BuildRequires:	Qt5Network-devel >= %{qt_ver}
+BuildRequires:	Qt5PrintSupport-devel >= %{qt_ver}
+BuildRequires:	Qt5Script-devel >= %{qt_ver}
+BuildRequires:	Qt5WebKit-devel >= %{qt_ver}
+BuildRequires:	Qt5Widgets-devel >= %{qt_ver}
+BuildRequires:	Qt5Xml-devel >= %{qt_ver}
+BuildRequires:	poppler-qt5-devel
+BuildRequires:	qt5-build
+BuildRequires:	qt5-qmake
+Requires:	Qt5Concurrent >= %{qt_ver}
+Requires:	Qt5Core >= %{qt_ver}
+Requires:	Qt5Gui >= %{qt_ver}
+Requires:	Qt5Network >= %{qt_ver}
+Requires:	Qt5PrintSupport >= %{qt_ver}
+Requires:	Qt5Script >= %{qt_ver}
+Requires:	Qt5WebKit >= %{qt_ver}
+Requires:	Qt5Widgets >= %{qt_ver}
+Requires:	Qt5Xml >= %{qt_ver}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -39,8 +54,7 @@ potrzebnych do tworzenia dokumentów LaTeXa w jednej aplikacji.
 %setup -q
 
 %build
-export QTDIR="%{_prefix}"
-qmake-qt4 -unix texmaker.pro \
+qmake-qt5 -unix texmaker.pro \
 	PREFIX="%{_prefix}" \
 	QMAKE_CXXFLAGS="%{rpmcflags}"
 %{__make}
@@ -84,7 +98,6 @@ rm -rf $RPM_BUILD_ROOT
 %lang(es) %{_datadir}/%{name}/qt_es.qm
 %lang(fa) %{_datadir}/%{name}/qt_fa.qm
 %lang(fr) %{_datadir}/%{name}/qt_fr.qm
-%lang(nl) %{_datadir}/%{name}/qt_nl.qm
 %lang(pl) %{_datadir}/%{name}/qt_pl.qm
 %lang(pt) %{_datadir}/%{name}/qt_pt.qm
 %lang(ru) %{_datadir}/%{name}/qt_ru.qm
